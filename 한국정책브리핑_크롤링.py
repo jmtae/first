@@ -1,22 +1,3 @@
-##https://iskaz.tistory.com/21#--%--%EC%--%--%EC%A-%--%EB%--%-C%--%EB%-D%B-%EC%-D%B-%ED%--%B-%--%EC%--%--%EC%--%--%--%EC%A-%--%EC%-E%A-%ED%--%--%EA%B-%B-
-
-# import requests
-# from bs4 import BeautifulSoup
-
-# URL = "https://www.ajou.ac.kr"
-# res = requests.get(URL)
-# html = res.text
-# soup = BeautifulSoup(html, 'lxml')
-
-# result = []
-# for e in soup.select("a"):
-#     text = e.text.strip() 
-#     if text != '':
-#         result.append(text)
-
-# result = [e.text.strip() for e in soup.select("a") if e.text.strip() != '']
-# print(result)
-
 #[1. 라이브러리 모듈 불러오기]
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -151,15 +132,10 @@ df = pd.DataFrame({
 })
 
 #[6. json으로 저장]
-with open("korea_briefing.jsonl", "w", encoding="UTF-8") as output_file:
+with open("한국정책브리핑.jsonl", "w", encoding="UTF-8") as output_file:
     for article in total_list:
         print(json.dumps(article, ensure_ascii=False), file=output_file)
 
 #######################################################
 
 
-# # JSONL 파일로 저장
-# with open("한국정책브리핑.jsonl", "w", encoding="UTF-8") as output_file:
-#     for article in total:
-#         json_line = json.dumps(article, ensure_ascii=False)
-#         output_file.write(json_line + "\n")
